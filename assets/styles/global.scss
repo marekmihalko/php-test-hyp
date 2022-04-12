@@ -1,1 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
+
+.comment-form, .admin-menu-container {
+  border-radius: 5px;
+  border: 1px solid darkgrey;
+  padding: 1rem;
+}

@@ -1,0 +1,24 @@
+<form class="comment-form">
+    {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+        <div class="mb-3">
+            <label for="commentUsername" class="form-label">Username</label>
+            <input type="email" class="form-control" name="username" id="commentUsername" placeholder="John Smith">
+        </div>
+        <div class="mb-3">
+            <label for="commentEmail" class="form-label">Email address</label>
+            <input type="text" class="form-control" name="email" id="commentEmail" placeholder="name@example.com">
+        </div>
+    {% endif %}
+
+    <div class="mb-3">
+        <label for="commentText" class="form-label">Comment</label>
+        <textarea class="form-control" id="commentText" name="text" rows="3"></textarea>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary btn-create-comment">Create comment</button>
+    </div>
+    <input type="hidden" name="article" value="{{ article.id }}">
+    <input type="hidden" name="parent" value="">
+
+    <div class="missing-comment-data"></div>
+</form>
