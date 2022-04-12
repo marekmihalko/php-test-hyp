@@ -1,0 +1,25 @@
+{% for comment in comments %}
+    <li>
+        <div class="card mt-3">
+            <div class="card-body">
+                {% if comment.isDeleted %}
+                    Deleted comment!
+                {% else %}
+                    <div>{{ comment.author ? comment.author.name : comment.authorName }} -
+                        <small>{{ comment.createdAt | date('d.m.Y') }}</small></div>
+                    <div>{{ comment.text }}</div>
+                    {% if comment.editedBy %}
+                        <small> edited by {{ comment.editedBy.name }} at {{ comment.createdAt | date('d.m.Y') }}</small>
+                    {% endif %}
+                    <div class="btn btn-outline-dark btn-sm float-end">Reply</div>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if comment.comments %}
+            <ul>
+                {% include "comment/comment.html.twig" with { 'comments': comment.comments } %}
+            </ul>
+        {% endif %}
+    </li>
+{% endfor %}
