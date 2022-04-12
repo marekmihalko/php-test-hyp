@@ -42,7 +42,8 @@ class Article
     private $createdAt;
 
     /**
-     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="article")
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="article", fetch="EAGER")
+     * @ORM\OrderBy({"id"="DESC"})
      */
     private $comments;
 
