@@ -5,7 +5,7 @@
 {% block body %}
     <article>
         <h1>{{ article.title }}</h1>
-        <small>by {{ article.author.email }} / {{ article.createdAt|date('d.m.Y') }}</small>
+        <small>by {{ article.author.name }} / {{ article.createdAt|date('d.m.Y') }}</small>
         <p>{{ article.text }}</p>
     </article>
 {% endblock %}
