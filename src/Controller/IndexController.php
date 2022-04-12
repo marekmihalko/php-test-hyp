@@ -16,7 +16,7 @@ class IndexController extends AbstractController
      */
     public function index(ArticleRepository $articleRepository, PaginatorInterface $paginator, Request $request): Response
     {
-        $LIMIT_PER_PAGE = 6;
+        $LIMIT_PER_PAGE = 12;
 
         $pagination = $paginator->paginate(
             $articleRepository->getQueryForAllArticles(),
