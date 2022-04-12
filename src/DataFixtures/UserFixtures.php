@@ -22,6 +22,7 @@ class UserFixtures extends BaseFixture
             $password = $this->encoder->hashPassword($user, 'password');
             $user->setPassword($password);
             $user->setEmail("test_$count@test.sk");
+            $user->setName($this->faker->name);
         });
 
         $manager->flush();
